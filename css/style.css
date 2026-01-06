@@ -1,7 +1,186 @@
+:root
+{
+  --squish-grey: #ececec;
+  --squish-skin: #f6dac0;
+  --squish-green: #7e9b8b;
+  --squish-light-green: #93beb4;
+  --squish-peach: #e2a67d;
+  --squish-yellow: #f5bd8f;
+  --squish-orange: #cc6f42;
+  --squish-electric-red: #d68671;
+  --squish-auburn: #cc6f42;
+  --squish-red: #862b21;
+  --squish-brown: #814c47;
+  --squish-chocolate: #6f1b17;
+  --squish-grey-overlay: #ecececc0;
+  --squish-green-overlay: #7e9b8b80;
+  --squish-yellow-overlay: #f5bd8fc0;
+  
+  --card-height: 15rem;
+  --radius-large: 1rem;
+  --radius-medium: 0.5rem;
+  --drawer-handle-height: 2.5rem;
+  --drawer-handle-down: 5rem;
+  --drawer-deadspace: 3rem;
+  --arrow-icon-width: 4rem;
+  --hover-zoom-percent: 2.5;
+  --smoothing: 0.5s;
+
+  --drawer-handle-up: calc(var(--card-height) - var(--drawer-deadspace));
+  --hover-zoom-scale: calc((100 + var(--hover-zoom-percent)) / 100);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
 
 html,
 body
 {
   margin: 0;
   padding: 0;
+  background-color: var(--squish-grey);
 }
+
+h1
+{
+  color: var(--squish-chocolate);
+}
+
+h2
+{
+  color: var(--squish-brown);
+}
+
+h3
+{
+  color: var(--squish-brown)
+}
+
+.banner
+{
+  text-align: center;
+  background-color: var(--squish-peach);
+  padding: 0.5rem;
+}
+
+.centre-content
+{
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 2rem;
+}
+
+.hand
+{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 900px)
+{
+  .hand
+  {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.card
+{
+  color: var(--squish-red);
+  background-color: var(--squish-light-green);
+  text-align: center;
+  padding: 1rem;
+  height: var(--card-height);
+  border-radius: var(--radius-large);
+
+  display: grid;
+  grid-template-rows: 1fr 4.5rem 1fr;
+  justify-content: center;
+  
+  overflow: hidden;
+
+  transition-duration: calc(var(--smoothing) * 0.5);
+}
+
+
+
+.tri-float
+{
+  grid-row: 2;
+}
+
+.drawer-handle
+{
+  transition-duration: calc(var(--smoothing) * 0.5);
+  margin-top: var(--drawer-handle-down);
+  height: var(--drawer-handle-height);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.drawer-icon
+{
+  padding: 0.5rem;
+  border-radius: var(--radius-medium);
+  grid-column: 2;
+}
+
+.drawer-content
+{
+  display: none;
+  color: var(--squish-red);
+  background-color: var(--squish-grey-overlay);
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.drawer-handle:hover
+{
+  transition-duration: var(--smoothing);
+  margin-top: calc(var(--drawer-handle-down) - var(--drawer-handle-up));
+  grid-template-columns: 1fr 98fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.up-arrow
+{
+  transition-duration: calc(var(--smoothing) * 0.5);
+  opacity: 0;
+  width: var(--arrow-icon-width);
+}
+
+.drawer-handle:hover > .drawer-icon
+{
+  grid-row: 1;
+}
+
+.card:hover
+{
+  transition-duration: var(--smoothing);
+  transform: scale(var(--hover-zoom-scale));
+}
+
+.card:hover .up-arrow
+{
+  transition-duration: var(--smoothing);
+  opacity: 1;
+}
+
+
+.drawer-handle:hover .up-arrow
+{
+  transition-duration: var(--smoothing);
+  transform: scaleY(-1);
+}
+
+.drawer-handle:hover > .drawer-content
+{
+  grid-area: 2 / 2;
+  display: grid;
+  border-radius: var(--radius-medium);
+  height: var(--drawer-handle-up);
+}
+
