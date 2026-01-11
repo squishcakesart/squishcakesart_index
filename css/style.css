@@ -16,7 +16,8 @@
   --squish-green-overlay: #7e9b8b80;
   --squish-yellow-overlay: #f5bd8fc0;
   
-  --card-height: 15rem;
+  --centre-content-pad: 2rem;
+  --card-height: 30rem;
   --radius-large: 1rem;
   --radius-medium: 0.5rem;
   --drawer-handle-height: 2.5rem;
@@ -29,6 +30,20 @@
   --drawer-handle-up: calc(var(--card-height) - var(--drawer-deadspace));
   --hover-zoom-scale: calc((100 + var(--hover-zoom-percent)) / 100);
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  font-size: 1rem;
+}
+
+@media screen and (orientation:landscape)
+{
+  :root
+  {
+    font-size: 0.5rem;
+  }
 }
 
 html,
@@ -42,11 +57,18 @@ body
 h1
 {
   color: var(--squish-chocolate);
+  font-size: 5rem;
 }
 
 h2
 {
   color: var(--squish-brown);
+  font-size: 3.5rem;
+}
+
+.tri-float h2
+{
+  margin: 0 0 0 0;
 }
 
 h3
@@ -65,27 +87,45 @@ h3
 {
   margin: 0 auto;
   max-width: 1000px;
-  padding: 2rem;
+}
+
+.content-padding
+{
+  padding: var(--centre-content-pad);
 }
 
 .hand
 {
   display: grid;
-  justify-content: center;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-@media (max-width: 900px)
+
+@media (min-width: 1000px)
 {
   .hand
   {
     display: grid;
-    grid-template-columns: 1fr;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
     gap: 1rem;
   }
 }
+
+
+.centrer
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.centred
+{
+  grid-column: 2;
+}
+
 
 .card
 {
@@ -184,3 +224,8 @@ h3
   height: var(--drawer-handle-up);
 }
 
+.full-width-image
+{
+  margin: 3rem 0 0 0;
+  max-width: min(50rem, calc(100vw - (2 * var(--centre-content-pad))));
+}
