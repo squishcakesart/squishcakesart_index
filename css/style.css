@@ -154,7 +154,7 @@ p
 .card
 {
   color: var(--squish-red);
-  background-color: var(--squish-light-green);
+  background: var(--squish-green);
   text-align: center;
   padding: 1rem;
   height: var(--card-height);
@@ -204,6 +204,20 @@ p
   width: 50rem;
   top: calc(var(--card-height) - (2 * var(--paragraph-size)));
   left: calc((100% / 2) - 25rem);
+
+  border-radius: var(--radius-large);
+
+  z-index: 1;
+}
+
+.card .whiteout
+{
+  position: absolute;
+  background: #ffff;
+  background: linear-gradient(0deg, #fff8 0%, #0000 50%, #0000 100%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .footer
