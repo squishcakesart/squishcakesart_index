@@ -54,6 +54,12 @@ body
   background-color: var(--squish-grey);
 }
 
+#twitter-icon
+{
+  width: 10rem;
+  height: 10rem;
+}
+
 h1
 {
   color: var(--squish-chocolate);
@@ -66,7 +72,7 @@ h2
   font-size: 3.5rem;
 }
 
-.tri-float h2
+.centred-vertical h2
 {
   margin: 0 0 0 0;
 }
@@ -78,9 +84,12 @@ h3
 
 .banner
 {
+  display: flex;
+  flex-direction: row;
   text-align: center;
   background-color: var(--squish-peach);
   padding: 0.5rem;
+  justify-content: center;
 }
 
 .centre-content
@@ -121,11 +130,15 @@ h3
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.centred
+.centred-horizontal
 {
   grid-column: 2;
 }
 
+.centred-vertical
+{
+  grid-row: 2;
+}
 
 .card
 {
@@ -143,85 +156,6 @@ h3
   overflow: hidden;
 
   transition-duration: calc(var(--smoothing) * 0.5);
-}
-
-
-
-.tri-float
-{
-  grid-row: 2;
-}
-
-.drawer-handle
-{
-  transition-duration: calc(var(--smoothing) * 0.5);
-  margin-top: var(--drawer-handle-down);
-  height: var(--drawer-handle-height);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-}
-
-.drawer-icon
-{
-  padding: 0.5rem;
-  border-radius: var(--radius-medium);
-  grid-column: 2;
-}
-
-.drawer-content
-{
-  display: none;
-  color: var(--squish-red);
-  background-color: var(--squish-grey-overlay);
-  grid-template-rows: 1fr 1fr 1fr;
-}
-
-.drawer-handle:hover
-{
-  transition-duration: var(--smoothing);
-  margin-top: calc(var(--drawer-handle-down) - var(--drawer-handle-up));
-  grid-template-columns: 1fr 98fr 1fr;
-  grid-template-rows: 1fr;
-}
-
-.up-arrow
-{
-  transition-duration: calc(var(--smoothing) * 0.5);
-  opacity: 0;
-  width: var(--arrow-icon-width);
-}
-
-.drawer-handle:hover > .drawer-icon
-{
-  grid-row: 1;
-}
-
-.card:hover
-{
-  transition-duration: var(--smoothing);
-  transform: scale(var(--hover-zoom-scale));
-}
-
-.card:hover .up-arrow
-{
-  transition-duration: var(--smoothing);
-  opacity: 1;
-}
-
-
-.drawer-handle:hover .up-arrow
-{
-  transition-duration: var(--smoothing);
-  transform: scaleY(-1);
-}
-
-.drawer-handle:hover > .drawer-content
-{
-  grid-area: 2 / 2;
-  display: grid;
-  border-radius: var(--radius-medium);
-  height: var(--drawer-handle-up);
 }
 
 .full-width-image
