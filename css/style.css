@@ -152,7 +152,7 @@ main
 .centrer
 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 10fr 1fr 10fr;
 }
 
 .centred-horizontal
@@ -281,10 +281,14 @@ main
 {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
-  list-style: none;
+  gap: 1rem;
 }
 
+.social-logo
+{
+  width: 4rem;
+  height: 4rem;
+}
 
 
 @media screen and (max-width: 900px)
