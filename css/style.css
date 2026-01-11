@@ -25,9 +25,10 @@
   --drawer-deadspace: 3rem;
   --arrow-icon-width: 4rem;
   --hover-zoom-percent: 2.5;
+  --paragraph-size: 2.5rem;
   --smoothing: 0.5s;
+  --screenshot-height-ratio: calc(9 / 16);
 
-  --drawer-handle-up: calc(var(--card-height) - var(--drawer-deadspace));
   --hover-zoom-scale: calc((100 + var(--hover-zoom-percent)) / 100);
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -52,12 +53,14 @@ body
   margin: 0;
   padding: 0;
   background-color: var(--squish-grey);
+  
 }
 
 #twitter-icon
 {
   width: 10rem;
   height: 10rem;
+  margin: 0 0 0 2rem;
 }
 
 h1
@@ -82,26 +85,34 @@ h3
   color: var(--squish-brown)
 }
 
+p
+{
+  font-size: var(--paragraph-size);
+}
+
 .banner
 {
   display: flex;
   flex-direction: row;
   text-align: center;
   background-color: var(--squish-peach);
-  padding: 0.5rem;
+  padding: 2rem;
   justify-content: center;
+}
+
+.banner h1
+{
+  margin: 1.5rem 0 0 0;
 }
 
 .centre-content
 {
   margin: 0 auto;
   max-width: 1000px;
-}
-
-.content-padding
-{
   padding: var(--centre-content-pad);
 }
+
+
 
 .hand
 {
@@ -150,16 +161,58 @@ h3
   border-radius: var(--radius-large);
 
   display: grid;
-  grid-template-rows: 1fr 4.5rem 1fr;
+  grid-template-rows: 5fr 1fr 5fr;
   justify-content: center;
   
   overflow: hidden;
 
-  transition-duration: calc(var(--smoothing) * 0.5);
+  position: relative;
+
+  z-index: 0;
+
+  text-decoration: none;
+}
+
+.card h2
+{
+  z-index: 2;
+  background-color: var(--squish-peach);
+  margin: 0;
+  padding: 1rem;
+  border-radius: var(--radius-large);
 }
 
 .full-width-image
 {
   margin: 3rem 0 0 0;
   max-width: min(50rem, calc(100vw - (2 * var(--centre-content-pad))));
+}
+
+.card-image
+{
+  position: absolute;
+  width: 200%;
+  left: calc(100% * -0.5);
+  top: calc(var(--screenshot-height-ratio) * 100% * -0.5);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.card .info
+{
+  position: absolute;
+  width: 50rem;
+  top: calc(var(--card-height) - (2 * var(--paragraph-size)));
+  left: calc((100% / 2) - 25rem);
+}
+
+.footer
+{
+  margin-top: 5rem;
+  text-align: center;
+}
+
+#copyright
+{
+  color: var(--squish-green)
 }
