@@ -39,7 +39,15 @@
   font-size: 1rem;
 }
 
-@media screen and (orientation:landscape)
+@media screen and (orientation:landscape) 
+{
+  :root
+  {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1000px)
 {
   :root
   {
@@ -222,11 +230,43 @@ p
 
 .footer
 {
-  margin-top: 5rem;
+  margin-top: 10rem;
   text-align: center;
 }
 
 #copyright
 {
   color: var(--squish-green)
+}
+
+.horizontal-display
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.spinner
+{
+  margin: 3rem 2rem 0rem 2rem;
+  height: 3rem;
+  width: 3rem;
+  border-style: dashed;
+  border-width: 1rem;
+  border-radius: 3rem;
+  border-color: var(--squish-green);
+  animation: 1s linear infinite spinner-animation;
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%
+  {
+    transform: rotate(180deg);
+  }
+  100%
+  {
+    transform: rotate(360deg);
+  }
 }

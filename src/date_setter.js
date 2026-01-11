@@ -4,7 +4,7 @@
 function set_footer_year() 
 {
   const footer = document.getElementById('copyright');
-  footer.textContent = `Copyright SquishCakesArt ${(new Date()).getFullYear()}`;
+  footer.textContent = `©Copyright SquishCakesArt ${(new Date()).getFullYear()}`;
 }
 
 set_footer_year();
