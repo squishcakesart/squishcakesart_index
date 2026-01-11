@@ -238,6 +238,7 @@ main
 {
   text-align: center;
   min-height: 5rem;
+  margin-top: 5rem;
 }
 
 #copyright
@@ -281,13 +282,13 @@ main
 {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 4rem;
 }
 
 .social-logo
 {
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 
