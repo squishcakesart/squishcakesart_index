@@ -257,7 +257,7 @@ main
   margin: 3rem 2rem 0rem 2rem;
   height: 3rem;
   width: 3rem;
-  border-style: dashed;
+  border-style: groove;
   border-width: 1rem;
   border-radius: 3rem;
   border-color: var(--squish-green);
@@ -271,6 +271,7 @@ main
   50%
   {
     transform: rotate(180deg);
+    border-color: var(--squish-light-green);
   }
   100%
   {
